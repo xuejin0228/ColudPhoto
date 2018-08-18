@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>新建相册</title>
+	</head>
+	<style>
+	</style>
+	<body ng-app="myapp" ng-controller="mycon">
+		<div class="container">
+			<div class="alert-warning header row  text-center">
+				<div class="col-md-3 col-xs-3"></div>
+				<div class="col-md-6 col-xs-6"><label>云相册</label></div>
+			</div>
+			<div class="bodyer row col-md-6 col-md-offset-3 col-xs-12">
+					<form action="">
+						<div class="form-group">
+							<label>相册名称</label>
+							<input type="text" class="form-control input-sm">
+						</div>
+						<div class="form-group">
+							<label>相册描述</label>
+							<textarea class="form-control" rows="3"></textarea>
+						</div>
+						<div class="form-group">
+							<label>上传照片</label>
+							<input type="file">
+						</div>
+						<div class="form-group">
+							<button type="button" class="btn btn-danger" ng-click=fAddAlbum()>创建</button>
+						</div>
+					</form>
+			</div>
+			<div class="footer text-center row">
+				<div class="col-md-3 col-xs-3 icon">
+					<i class="iconfont">&#xe60c;</i>
+				</div>
+				<div class="col-md-3 col-xs-3 icon">
+					<i class="iconfont">&#xe61a;</i>
+				</div>
+				<div class="col-md-3 col-xs-3 icon">
+					<i class="iconfont">&#xe7ed;</i>
+				</div>
+				<div class="col-md-3 col-xs-3 icon">
+					<i class="iconfont">&#xe64f;</i>
+				</div>
+			</div>
+		</div>
+	</body>
+	<link href="../css/css/app.css" rel="stylesheet" style="text/css">
+		<link href="../css/css/bootstrap.min.css" rel="stylesheet" style="text/css"/> 
+		<script type="text/javascript" src="../css/js/jquery-2.0.3.js"></script>
+		<script type="text/javascript" src="../css/js/angular.min.js"></script>
+		<script type="text/javascript" src="../css/js/bootstrap.js"></script>
+	<script>
+		var app = angular.module("myapp",[]);
+		app.controller("mycon",function($scope,$http){
+			//新建相册
+			$scope.fAddAlbum=function(){
+				location.href="./main.html";
+			};
+		});
+	</script>
+</html>

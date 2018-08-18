@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>登录页面</title>
+	</head>
+	<body ng-app="myapp" ng-controller="mycon">
+		<div class="container" style="margin-top:150px;">
+			<div class="bodyer row">
+				<div class="col-xs-4 col-xs-offset-4">
+					<form>
+						<div class="form-group">
+							<label>用户名:</label>
+							<input class="form-control" placeholder="请输入用户名" ng-model="username"/>
+						</div>
+						<div class="form-group">
+							<label>密码:</label>
+							<input class="form-control" placeholder="请输入密码" ng-model="password" />
+						</div>
+						<div class="text-center form-group">
+							<button class="btn btn-danger" ng-click="tologin()">登录</button>
+							<button class="btn btn-warning" ng-click="toregist()">注册</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+	<link href="./css/css/bootstrap.min.css" rel="stylesheet" style="text/css"/> 
+	<script type="text/javascript" src="./css/js/jquery-2.0.3.js"></script>
+	<script type="text/javascript" src="./css/js/angular.min.js"></script>
+	<script type="text/javascript" src="./css/js/bootstrap.js"></script>
+	<script>
+		var app = angular.module("myapp",[]);
+		app.controller("mycon",function($scope,$http){
+			//登陆验证
+			$scope.tologin=function(){
+				var username = $scope.username;
+			    var password=$scope.password;
+			  	$http({
+			  		method:"post",
+			  		url:"./data/login.html"
+			  	}).then(function successCallback(res){
+			  		if(res.data.flag==true){
+			  			alert("登录成功");
+			  			location="./photo/main.html";
+			  		}else{
+			  			alert("用户名或密码错误");
+			  		}
+			  	},function errorCallback(res){
+			  		
+			  	});
+			};
+			//跳转注册
+			$scope.toregist=function(){
+				location.href="./regist.html";
+			};
+		});
+	</script>
+</html>
